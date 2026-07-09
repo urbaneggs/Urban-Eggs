@@ -44,12 +44,11 @@
             text-align: center;
         }
         .header-left img {
-            height: 80px; /* Adjust to scale the logo */
-            margin-bottom: 5px;
+            height: 100px; /* Adjust to scale the logo */
+            margin-bottom: 3px;
         }
         .header-left .brand-name {
             font-size: 16px;
-            font-weight: bold;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--text-dark);
@@ -183,11 +182,24 @@
             margin-bottom: 20px;
             color: var(--primary-yellow);
         }
-        .footer-col p, .footer-col a {
+        .footer-col p {
+            color: #bbbbbb;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .footer-col > a {
             color: #bbbbbb;
             font-size: 0.9rem;
             margin-bottom: 10px;
             display: block;
+        }
+        /* This new rule forces links inside paragraphs (like your email/phone) to stay on the same line */
+        .footer-col p a {
+            display: inline;
+            color: #bbbbbb;
+        }
+        .footer-col p a:hover {
+            color: var(--primary-yellow);
         }
     </style>
 </head>
@@ -281,8 +293,15 @@
         </div>
         <div class="footer-col">
             <h5>Contact Information</h5>
-            <p>Rajkot, Gujarat, India</p>
-            <p>info@urbaneggs.in</p>
+           <p>
+                <a href="https://maps.app.goo.gl/Pf2Z3iV4UfkmTTQk8" target="_blank">
+                    Survey No. 100/2 Pipardi Jalsika Road,<br>
+                    Ghiyavad, Wankaner, Gujarat 363621, India
+                </a>
+            </p>
+            <p>Email: <a href="mailto:urbaneggsrajkot@gmail.com"> 
+			urbaneggsrajkot@gmail.com </p>
+            <p>Ph: <a href="tel:+919409434343">+91 9409434343</a></p>
             <p>&copy; 2026 Urban Eggs. All rights reserved.</p>
         </div>
     </footer>
