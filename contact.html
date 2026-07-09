@@ -281,18 +281,22 @@
         <a href="contact.html" class="btn-primary">Contact Us</a>
     </header>
 
-    <!-- Dedicated Contact Form Section -->
+<!-- Dedicated Contact Form Section -->
     <section class="contact-page-wrapper">
         <h1>GET IN TOUCH</h1>
         <p>Have questions about retail supply or B2B solutions? Drop us a message below.</p>
         
-        <!-- Form action updated to use FormSubmit API for direct emailing -->
-        <form class="contact-form" action="https://formsubmit.co/urbaneggsrajkot@gmail.com" method="POST">
+        <!-- Form action updated to use Web3Forms for guaranteed delivery -->
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
             
-            <!-- Optional: Disables the Captcha page for a smoother user experience -->
-            <input type="hidden" name="_captcha" value="false">
+            <!-- REQUIRED: Paste your Web3Forms Access Key inside the value quotes below -->
+            <input type="hidden" name="access_key" value="894d68e2-2de2-4e9f-89f9-d61a78c4ff2c">
+            
+            <!-- Optional: Sets the subject line in your Gmail inbox -->
+            <input type="hidden" name="subject" value="New Website Inquiry: Urban Eggs">
+            
             <!-- Optional: Redirects the user back to the contact page after sending -->
-            <input type="hidden" name="_next" value="https://YOUR-GITHUB-USERNAME.github.io/contact.html">
+            <input type="hidden" name="redirect" value="https://urbaneggs.in/contact.html">
 
             <div class="form-group">
                 <label for="name">Name</label>
@@ -318,6 +322,9 @@
                 <label for="description">Description / Message</label>
                 <textarea id="description" name="description" rows="5" required placeholder="How can we help you?"></textarea>
             </div>
+
+            <!-- Hidden Honeypot to prevent spam bots -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
             
             <button type="submit" class="btn-submit">Submit Request</button>
         </form>
