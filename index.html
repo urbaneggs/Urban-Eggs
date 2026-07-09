@@ -29,18 +29,35 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5vw;
+            padding: 15px 5vw;
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 100;
+            min-height: 90px;
         }
-        .logo {
-            font-size: 24px;
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .header-left img {
+            height: 55px; /* Adjust to scale the logo */
+            margin-bottom: 5px;
+        }
+        .header-left .brand-name {
+            font-size: 16px;
             font-weight: bold;
             letter-spacing: 3px;
             text-transform: uppercase;
+            color: var(--text-dark);
+        }
+        .header-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .nav-links a {
             margin: 0 15px;
@@ -72,8 +89,8 @@
 
         /* Hero Section */
         .hero {
-            /* Replace the URL below with an image of your sheds or eggs */
-            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), url('hero-bg.jpg') center/cover;
+            /* Replace the URL below with your panoramic shed image */
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), url('Panoramic_Farm_Hero.jpg') center/cover;
             padding: 120px 5vw;
             text-align: center;
             border-bottom: 1px solid #eaeaea;
@@ -178,20 +195,30 @@
 
     <!-- Header Navigation -->
     <header>
-        <img src="Final Logo.jpeg" alt="Urban Eggs" style="height: 80px;">
-        <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Our Farm</a>
-            <a href="#">Products</a>
-            <a href="#">B2B Solutions</a>
-        </nav>
+        <!-- The Left: Logo with Text Underneath -->
+        <div class="header-left">
+            <img src="Transparent_Logo.png" alt="Urban Eggs Logo">
+            <div class="brand-name">URBAN EGGS</div>
+        </div>
+
+        <!-- The Center: Navigation Links -->
+        <div class="header-center">
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Our Farm</a>
+                <a href="#">Products</a>
+                <a href="#">B2B Solutions</a>
+            </nav>
+        </div>
+
+        <!-- The Right: Contact Button -->
         <a href="#" class="btn-primary">Contact Us</a>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <h1>Redefining Quality Poultry in India</h1>
-        <p>Operating a modern, 20,000+-bird layer farm in Rajkot. We combine a naturally ventilated, open California A-type cage system with rigorous hygiene standards to consistently deliver premium farm-fresh eggs.</p>
+        <p>Operating a modern, 20,000-bird layer farm in Rajkot. We combine a naturally ventilated, open California A-type cage system with rigorous hygiene standards to consistently deliver premium farm-fresh eggs.</p>
         <div>
             <a href="#" class="btn-primary">Explore Products</a>
             <a href="#" class="btn-secondary">Partner With Us</a>
@@ -203,14 +230,14 @@
         <h2>OUR CORE OFFERINGS</h2>
         <div class="product-grid">
             <div class="product-card">
-                <h3>Farm-Fresh Shell Eggs</h3>
-                <p>Sourced directly from our state-of-the-art sheds. Gathered and packed daily to ensure optimal nutrition and guaranteed freshness from farm to table.</p>
+                <h3>Retail Shell Eggs</h3>
+                <p>Sourced directly from our naturally ventilated sheds. Gathered and packed daily to ensure optimal nutrition and guaranteed freshness from farm to table.</p>
                 <br>
                 <a href="#">View Retail Options &rarr;</a>
             </div>
             <div class="product-card">
-                <h3>Pasteurized Liquid Eggs</h3>
-                <p>Consistent, safe, and efficient solutions designed for commercial food service and manufacturing. Fully pasteurized for absolute quality control.</p>
+                <h3>Bulk Commercial Shell Eggs</h3>
+                <p>Consistent, safe, and efficient high-volume supply designed for commercial food service, bakeries, and large-scale distribution.</p>
                 <br>
                 <a href="#">Discover Commercial Solutions &rarr;</a>
             </div>
@@ -223,13 +250,13 @@
         <div class="features-grid">
             <div class="feature">
                 <div class="feature-icon">🏗️</div>
-                <h4>Modern Infrastructure</h4>
-                <p>Engineered, climate-controlled environments with dedicated electrical mainlines to ensure uninterrupted flock health, safety, and comfort.</p>
+                <h4>Open Air Infrastructure</h4>
+                <p>Engineered for optimal natural ventilation, our California A-type sheds ensure constant fresh air, maximizing flock health and comfort.</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">📊</div>
                 <h4>Data-Driven Quality</h4>
-                <p>Strict digital tracking from daily feed inputs to depletion metrics, ensuring unmatched consistency across our entire production line.</p>
+                <p>Strict digital tracking from daily feed inputs to depletion metrics, ensuring unmatched consistency across our entire 20,000-bird production line.</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">🤝</div>
@@ -243,7 +270,7 @@
     <footer>
         <div class="footer-col">
             <div class="logo" style="color: #fff; margin-bottom: 20px;">URBAN EGGS</div>
-            <p>Premium farm-fresh eggs and<br>innovative liquid egg products.</p>
+            <p>Premium farm-fresh shell eggs<br>scaled for excellence.</p>
         </div>
         <div class="footer-col">
             <h5>Quick Links</h5>
