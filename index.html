@@ -29,7 +29,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5vw;
+            padding: 5px 5vw;
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             position: sticky;
@@ -37,21 +37,30 @@
             z-index: 100;
             min-height: 90px;
         }
-        .header-left {
+.header-left {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            flex-direction: row; 
+            align-items: center; /* This perfectly centers them vertically */
+            text-align: left;
+            gap: 15px; 
         }
         .header-left img {
-            height: 100px; /* Adjust to scale the logo */
-            margin-bottom: 3px;
+            height: 100px; 
+            /* ADD THESE 3 LINES: */
+            margin: 0; 
+            padding: 0;
+            display: block; /* Removes default browser spacing under images */
         }
         .header-left .brand-name {
             font-size: 16px;
+            font-weight: ; /* Added bold back in case you missed it */
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--text-dark);
+            /* ADD THESE 3 LINES: */
+            margin: 0; 
+            padding: 0;
+            line-height: 1; /* Strips away invisible text line-height spacing */
         }
         .header-center {
             position: absolute;
@@ -68,14 +77,18 @@
         }
         .btn-primary {
             background-color: var(--primary-yellow);
+            border: 2px solid var(--primary-yellow); /* ADDED: Matches the secondary border thickness */
             padding: 10px 24px;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 16px; /* ADDED: Locks the exact text size */
             color: #000;
-            transition: background 0.3s;
+            transition: background 0.3s, border-color 0.3s;
+            display: inline-block; /* ADDED: Forces the link to behave like a block button */
         }
         .btn-primary:hover {
             background-color: #e6b800;
+            border-color: #e6b800; /* ADDED: Keeps the border matching on hover */
         }
         .btn-secondary {
             background-color: transparent;
@@ -83,7 +96,10 @@
             padding: 10px 24px;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 16px; /* ADDED: Matches the primary text size */
             margin-left: 10px;
+            display: inline-block; /* ADDED: Forces the link to behave like a block button */
+            color: var(--text-dark);
         }
 
         /* Hero Section */
@@ -109,13 +125,13 @@
 
         /* Core Products Section */
         .products {
-            padding: 80px 5vw;
+            padding: 60px 10vw;
             background-color: #ffffff;
             text-align: center;
         }
         .products h2 {
             font-size: 2rem;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             letter-spacing: 1px;
         }
         .product-grid {
@@ -131,27 +147,35 @@
             border-radius: 8px;
             width: 350px;
             text-align: left;
+            
+            /* ADD THESE 3 LINES: */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         .product-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         .product-card a {
             font-weight: bold;
             border-bottom: 2px solid var(--primary-yellow);
             padding-bottom: 2px;
+            
+            /* ADD THIS LINE: */
+            margin-top: auto; /* This magically pushes the link to the exact bottom edge */
         }
 
         /* The Difference Section */
         .difference {
-            padding: 80px 5vw;
+            padding: 20px 5vw;
             background-color: var(--bg-gray);
             text-align: center;
         }
         .features-grid {
             display: flex;
             justify-content: space-around;
-            margin-top: 50px;
+            margin-top: 1px;
             flex-wrap: wrap;
             gap: 30px;
         }
@@ -168,10 +192,10 @@
         }
         
         /* Footer */
-        footer {
+		footer {
             background-color: var(--text-dark);
             color: #ffffff;
-            padding: 60px 5vw;
+            padding: 1px 5vw 40px 5vw; /* Reduced top padding to 30px */
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -179,19 +203,30 @@
         }
         .footer-col h5 {
             font-size: 1.2rem;
-            margin-bottom: 20px;
+            margin-bottom: 1px;
             color: var(--primary-yellow);
         }
         .footer-col p {
             color: #bbbbbb;
             font-size: 0.9rem;
-            margin-bottom: 10px;
+            margin-bottom: 1px;
         }
         .footer-col > a {
             color: #bbbbbb;
             font-size: 0.9rem;
-            margin-bottom: 10px;
+            margin-bottom: 1px;
             display: block;
+        }
+		.footer-col > a {
+            color: #bbbbbb;
+            font-size: 0.9rem;
+            margin-bottom: 1px;
+            display: block;
+            transition: color 0.3s; /* Adds a smooth fade effect */
+        }
+        /* This makes the Quick Links turn yellow on hover */
+        .footer-col > a:hover {
+            color: var(--primary-yellow);
         }
         /* This new rule forces links inside paragraphs (like your email/phone) to stay on the same line */
         .footer-col p a {
@@ -217,8 +252,8 @@
         <div class="header-center">
             <nav class="nav-links">
                 <a href="#">Home</a>
-                <a href="#">Our Farm</a>
-                <a href="#">Products</a>
+                <a href="our-farm.html">Our Farm</a>
+                <a href="products.html">Products</a>
                 <a href="#">B2B Solutions</a>
             </nav>
         </div>
@@ -232,8 +267,8 @@
         <h1>Redefining Quality Poultry in India</h1>
         <p>Operating a modern, 20,000-bird layer farm in Rajkot. We combine a naturally ventilated, open California A-type cage system with rigorous hygiene standards to consistently deliver premium farm-fresh eggs.</p>
         <div>
-            <a href="#" class="btn-primary">Explore Products</a>
-            <a href="#" class="btn-secondary">Partner With Us</a>
+            <a href="products.html" class="btn-primary">Explore Products</a>
+            <a href="contact.html" class="btn-secondary">Partner With Us</a>
         </div>
     </section>
 
@@ -245,13 +280,13 @@
                 <h3>Retail Shell Eggs</h3>
                 <p>Sourced directly from our naturally ventilated sheds. Gathered and packed daily to ensure optimal nutrition and guaranteed freshness from farm to table.</p>
                 <br>
-                <a href="#">View Retail Options &rarr;</a>
+                <a href="products.html">View Retail Options &rarr;</a>
             </div>
             <div class="product-card">
                 <h3>Bulk Commercial Shell Eggs</h3>
                 <p>Consistent, safe, and efficient high-volume supply designed for commercial food service, bakeries, and large-scale distribution.</p>
                 <br>
-                <a href="#">Discover Commercial Solutions &rarr;</a>
+                <a href="products.html">Discover Commercial Solutions &rarr;</a>
             </div>
         </div>
     </section>
@@ -281,13 +316,13 @@
     <!-- Footer -->
     <footer>
         <div class="footer-col">
-            <div class="logo" style="color: #fff; margin-bottom: 20px;">URBAN EGGS</div>
+            <h5>URBAN EGGS</h5>
             <p>Premium farm-fresh shell eggs<br>scaled for excellence.</p>
         </div>
         <div class="footer-col">
             <h5>Quick Links</h5>
-            <a href="#">Our Farm</a>
-            <a href="#">Retail Products</a>
+            <a href="our-farm.html">Our Farm</a>
+            <a href="products.html">Products</a>
             <a href="#">B2B Solutions</a>
             <a href="contact.html">Contact</a>
         </div>
@@ -299,9 +334,9 @@
                     Ghiyavad, Wankaner, Gujarat 363621, India
                 </a>
             </p>
-            <p>Email: <a href="mailto:urbaneggsrajkot@gmail.com"> urbaneggsrajkot@gmail.com </p>
-            <p>Ph: <a href="tel:+919409434343">+91 9409434343 </p>
-            <p>&copy; 2026 Urban Eggs. All rights reserved.</p>
+            <p>Email: <a href="mailto:urbaneggsrajkot@gmail.com">urbaneggsrajkot@gmail.com</a></p>
+			<p>Ph: <a href="tel:+919409434343">+91 9409434343</a></p>
+			<p>© 2026 Urban Eggs. All rights reserved.</p>
         </div>
     </footer>
 
