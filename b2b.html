@@ -227,6 +227,68 @@
         .footer-col p a:hover {
             color: var(--primary-yellow);
         }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 850px) {
+            /* 1. Stack the Navigation */
+            header {
+                flex-direction: column;
+                padding: 20px 5vw;
+                gap: 15px;
+            }
+            .header-center {
+                position: static;
+                transform: none;
+            }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-links a { margin: 0 8px; }
+
+            /* 2. Shrink Giant Hero Text & Spacing */
+            .hero h1, .farm-hero h1, .page-hero h1, .b2b-hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero, .farm-hero, .page-hero, .b2b-hero, .cta-banner {
+                padding: 50px 5vw;
+            }
+
+            /* 3. Make All Cards Flexible (Products, B2B, Features) */
+            .product-card, .catalog-card, .partner-card, .feature {
+                width: 100%;
+                max-width: 400px; /* Keeps them from getting too wide on tablets */
+                box-sizing: border-box; /* Ensures padding doesn't break the width */
+                margin: 0 auto;
+            }
+
+            /* 4. Stack Side-by-Side Sections (Our Farm Page) */
+            .content-section, .content-section.reverse {
+                flex-direction: column;
+                padding: 50px 5vw;
+                gap: 30px;
+                text-align: center;
+            }
+
+            /* 5. Center and Stack Hero Buttons (Home Page) */
+            .hero .btn-primary, .hero .btn-secondary {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+                max-width: 250px;
+            }
+            .hero .btn-secondary {
+                margin-left: auto; /* Fixes the left margin from desktop */
+            }
+            
+            /* 6. Footer adjustments */
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
