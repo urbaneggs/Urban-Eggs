@@ -286,17 +286,10 @@
         <h1>GET IN TOUCH</h1>
         <p>Have questions about retail supply or B2B solutions? Drop us a message below.</p>
         
-        <!-- Form action updated to use Web3Forms for guaranteed delivery -->
-        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <form class="contact-form" id="contactForm">
             
-            <!-- REQUIRED: Paste your Web3Forms Access Key inside the value quotes below -->
-            <input type="hidden" name="access_key" value="894d68e2-2de2-4e9f-89f9-d61a78c4ff2c">
-            
-            <!-- Optional: Sets the subject line in your Gmail inbox -->
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
             <input type="hidden" name="subject" value="New Website Inquiry: Urban Eggs">
-            
-            <!-- Optional: Redirects the user back to the contact page after sending -->
-            <input type="hidden" name="redirect" value="https://urbaneggs.in/contact.html">
 
             <div class="form-group">
                 <label for="name">Name</label>
@@ -305,7 +298,6 @@
             
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <!-- Pattern ensures: Starts with +, 1 to 3 digits for country code, optional space, then exactly 10 digits -->
                 <input type="tel" id="phone" name="phone" required 
                        pattern="^\+[1-9]\d{0,2}[ ]?\d{10}$" 
                        title="Must contain country code followed by 10 digits (e.g., +91 9409434343)" 
@@ -314,7 +306,6 @@
             
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <!-- type="email" strictly enforces the inclusion of an '@' symbol and valid domain -->
                 <input type="email" id="email" name="email" required placeholder="name@example.com">
             </div>
             
@@ -323,13 +314,13 @@
                 <textarea id="description" name="description" rows="5" required placeholder="How can we help you?"></textarea>
             </div>
 
-            <!-- Hidden Honeypot to prevent spam bots -->
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
             
             <button type="submit" class="btn-submit">Submit Request</button>
+
+            <p id="form-result" style="display: none; margin-top: 20px; font-weight: bold; font-size: 1.1rem;"></p>
         </form>
     </section>
-
     <!-- Footer -->
     <footer>
         <div class="footer-col">
@@ -356,6 +347,50 @@
             <p>&copy; 2026 Urban Eggs. All rights reserved.</p>
         </div>
     </footer>
+<script>
+        const form = document.getElementById('contactForm');
+        const result = document.getElementById('form-result');
 
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            
+            // Show a "Sending..." message while they wait
+            result.style.display = "block";
+            result.style.color = "var(--text-dark)";
+            result.innerHTML = "Sending your inquiry...";
+
+            fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        // Success! Show your custom message in green
+                        result.style.color = "#28a745"; // A nice, reassuring green
+                        result.innerHTML = "Thank you for reaching out! Someone from our team will get back to you shortly.";
+                        form.reset(); // Clears the typed text out of the form
+                    } else {
+                        // If something goes wrong on Web3Forms' end
+                        console.log(response);
+                        result.style.color = "red";
+                        result.innerHTML = json.message;
+                    }
+                })
+                .catch(error => {
+                    // If the user's internet drops
+                    console.log(error);
+                    result.style.color = "red";
+                    result.innerHTML = "Something went wrong! Please check your internet connection and try again.";
+                });
+        });
+    </script>
 </body>
 </html>
