@@ -24,12 +24,12 @@
             color: inherit;
         }
 
-        /* Navigation */
+        /* Navigation (Matches Home Page) */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5vw;
+            padding: 5px 5vw;
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             position: sticky;
@@ -39,20 +39,26 @@
         }
         .header-left {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            flex-direction: row; 
+            align-items: center; 
+            text-align: left;
+            gap: 15px; 
         }
         .header-left img {
-            height: 80px; 
-            margin-bottom: 5px;
+            height: 100px; 
+            margin: 0; 
+            padding: 0;
+            display: block; 
         }
         .header-left .brand-name {
             font-size: 16px;
-            font-weight: bold;
+            font-weight: ; 
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--text-dark);
+            margin: 0; 
+            padding: 0;
+            line-height: 1; 
         }
         .header-center {
             position: absolute;
@@ -82,7 +88,7 @@
         /* Contact Form Layout */
 /* Contact Form Layout */
         .contact-page-wrapper {
-            padding: 30px 5vw 80px 5vw; /* Changed top padding to 30px, kept bottom at 80px */
+            padding: 1px 5vw 50px 5vw; /* Changed top padding to 30px, kept bottom at 80px */
             background-color: #ffffff;
             text-align: center;
             min-height: 60vh; 
@@ -149,29 +155,40 @@
         }
         
         /* Footer */
-        footer {
+		footer {
             background-color: var(--text-dark);
             color: #ffffff;
-            padding: 60px 5vw;
+            padding: 1px 5vw 40px 5vw; /* Reduced top padding to 30px */
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 40px;
         }
+		.footer-col > a {
+            color: #bbbbbb;
+            font-size: 0.9rem;
+            margin-bottom: 1px;
+            display: block;
+            transition: color 0.3s; /* Adds a smooth fade effect */
+        }
+        /* This makes the Quick Links turn yellow on hover */
+        .footer-col > a:hover {
+            color: var(--primary-yellow);
+        }
         .footer-col h5 {
             font-size: 1.2rem;
-            margin-bottom: 20px;
+            margin-bottom: 1px;
             color: var(--primary-yellow);
         }
         .footer-col p {
             color: #bbbbbb;
             font-size: 0.9rem;
-            margin-bottom: 10px;
+            margin-bottom: 1px;
         }
         .footer-col > a {
             color: #bbbbbb;
             font-size: 0.9rem;
-            margin-bottom: 10px;
+            margin-bottom: 1px;
             display: block;
         }
         .footer-col p a {
@@ -194,9 +211,9 @@
         <div class="header-center">
             <nav class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="#">Our Farm</a>
-                <a href="#">Products</a>
-                <a href="#">B2B Solutions</a>
+                <a href="our-farm.html">Our Farm</a>
+                <a href="products.html">Products</a>
+                <a href="b2b.html">B2B Solutions</a>
             </nav>
         </div>
         <a href="contact.html" class="btn-primary">Contact Us</a>
@@ -247,15 +264,15 @@
     <!-- Footer -->
     <footer>
         <div class="footer-col">
-            <div class="logo" style="color: #fff; margin-bottom: 20px;">URBAN EGGS</div>
+            <h5>URBAN EGGS</h5>
             <p>Premium farm-fresh shell eggs<br>scaled for excellence.</p>
         </div>
         <div class="footer-col">
             <h5>Quick Links</h5>
             <a href="index.html">Home</a>
-            <a href="#">Our Farm</a>
-            <a href="#">Products</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="our-farm.html">Our Farm</a>
+            <a href="products.html">Products</a>
+            <a href="#">B2B Solutions</a>
         </div>
         <div class="footer-col">
            <h5>Contact Information</h5>
