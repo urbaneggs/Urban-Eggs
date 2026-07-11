@@ -4,288 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Urban Eggs</title>
-	<!-- This line adds your logo to the browser tab -->
     <link rel="icon" type="image/png" href="logo_borderless.png">
-    <style>
-        /* Global Styles */
-        :root {
-            --primary-yellow: #FFCC00;
-            --text-dark: #1a1a1a;
-            --text-light: #555555;
-            --bg-gray: #f9f9f9;
-        }
-        body {
-            font-family: 'Optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Navigation (Matches Home Page) */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 5vw;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            min-height: 90px;
-        }
-        .header-left {
-            display: flex;
-            flex-direction: row; 
-            align-items: center; 
-            text-align: left;
-            gap: 15px; 
-        }
-        .header-left img {
-            height: 100px; 
-            margin: 0; 
-            padding: 0;
-            display: block; 
-        }
-        .header-left .brand-name {
-            font-size: 16px;
-            font-weight: ; 
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--text-dark);
-            margin: 0; 
-            padding: 0;
-            line-height: 1; 
-        }
-        .header-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .nav-links a {
-            margin: 0 15px;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--primary-yellow);
-        }
-        .btn-primary {
-            background-color: var(--primary-yellow);
-            padding: 10px 24px;
-            border-radius: 4px;
-            font-weight: bold;
-            color: #000;
-            transition: background 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #e6b800;
-        }
-
-        /* Contact Form Layout */
-/* Contact Form Layout */
-        .contact-page-wrapper {
-            padding: 1px 5vw 50px 5vw; /* Changed top padding to 30px, kept bottom at 80px */
-            background-color: #ffffff;
-            text-align: center;
-            min-height: 60vh; 
-        }
-        .contact-page-wrapper h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-        .contact-page-wrapper p {
-            color: var(--text-light);
-            margin-bottom: 40px;
-        }
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-            background: var(--bg-gray);
-            padding: 40px;
-            border-radius: 8px;
-            border: 1px solid #eaeaea;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-        /* Style for invalid inputs */
-        .form-group input:invalid:focus {
-            border-color: red;
-            outline: none;
-        }
-        .form-group input:valid:focus, .form-group textarea:focus {
-            border-color: var(--primary-yellow);
-            outline: none;
-        }
-        .btn-submit {
-            background-color: var(--primary-yellow);
-            color: #000;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-        }
-        .btn-submit:hover {
-            background-color: #e6b800;
-        }
-        
-        /* Footer */
-		footer {
-            background-color: var(--text-dark);
-            color: #ffffff;
-            padding: 1px 5vw 40px 5vw; /* Reduced top padding to 30px */
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-		.footer-col > a {
-            color: #bbbbbb;
-            font-size: 0.9rem;
-            margin-bottom: 1px;
-            display: block;
-            transition: color 0.3s; /* Adds a smooth fade effect */
-        }
-        /* This makes the Quick Links turn yellow on hover */
-        .footer-col > a:hover {
-            color: var(--primary-yellow);
-        }
-        .footer-col h5 {
-            font-size: 1.2rem;
-            margin-bottom: 1px;
-            color: var(--primary-yellow);
-        }
-        .footer-col p {
-            color: #bbbbbb;
-            font-size: 0.9rem;
-            margin-bottom: 1px;
-        }
-        .footer-col > a {
-            color: #bbbbbb;
-            font-size: 0.9rem;
-            margin-bottom: 1px;
-            display: block;
-        }
-        .footer-col p a {
-            display: inline;
-            color: #bbbbbb;
-        }
-        .footer-col p a:hover {
-            color: var(--primary-yellow);
-        }
-   
-	/* --- MOBILE RESPONSIVENESS --- */
-        @media (max-width: 850px) {
-            /* 1. Stack the Navigation */
-            header {
-                flex-direction: column;
-                padding: 20px 5vw;
-                gap: 15px;
-            }
-            .header-center {
-                position: static;
-                transform: none;
-            }
-            .nav-links {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            .nav-links a { margin: 0 8px; }
-
-            /* 2. Shrink Giant Hero Text & Spacing */
-            .hero h1, .farm-hero h1, .page-hero h1, .b2b-hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero, .farm-hero, .page-hero, .b2b-hero, .cta-banner {
-                padding: 50px 5vw;
-            }
-
-            /* 3. Make All Cards Flexible (Products, B2B, Features) */
-            .product-card, .catalog-card, .partner-card, .feature {
-                width: 100%;
-                max-width: 400px; /* Keeps them from getting too wide on tablets */
-                box-sizing: border-box; /* Ensures padding doesn't break the width */
-                margin: 0 auto;
-            }
-
-            /* 4. Stack Side-by-Side Sections (Our Farm Page) */
-            .content-section, .content-section.reverse {
-                flex-direction: column;
-                padding: 50px 5vw;
-                gap: 30px;
-                text-align: center;
-            }
-
-            /* 5. Center and Stack Hero Buttons (Home Page) */
-            .hero .btn-primary, .hero .btn-secondary {
-                display: block;
-                margin: 10px auto;
-                width: 80%;
-                max-width: 250px;
-            }
-            .hero .btn-secondary {
-                margin-left: auto; /* Fixes the left margin from desktop */
-            }
-            
-            /* 6. Footer adjustments */
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-		/* Phone Number Dropdown Layout */
-        .phone-group {
-            display: flex;
-            gap: 10px;
-            width: 100%;
-        }
-        .phone-group select {
-            width: 35%;
-            max-width: 140px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
-            background-color: #fff;
-        }
-        .phone-group input {
-            flex-grow: 1; /* Makes the number input take up the rest of the space */
-        }
-	</style>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
         <div class="header-left">
             <img src="Final Logo.jpeg" alt="Urban Eggs Logo">
@@ -302,7 +26,6 @@
         <a href="contact" class="btn-primary">Contact Us</a>
     </header>
 
-<!-- Dedicated Contact Form Section -->
     <section class="contact-page-wrapper">
         <h1>GET IN TOUCH</h1>
         <p>Have questions about retail supply or B2B solutions? Drop us a message below.</p>
@@ -320,9 +43,7 @@
             <div class="form-group">
                 <label for="phone">Phone Number</label>
                 <div class="phone-group">
-                  <!-- Country Code Dropdown -->
                     <select name="countryCode" id="countryCode">
-                        <!-- Quick Select Group (Alphabetically Sorted) -->
                         <optgroup label="Quick Select">
                             <option value="+91" selected>India (+91)</option>
                             <option value="+960">Maldives (+960)</option>
@@ -332,8 +53,6 @@
                             <option value="+971">UAE (+971)</option>
                             <option value="+1">US/Canada (+1)</option>
                         </optgroup>
-
-                        <!-- All Countries Group (Alphabetically Sorted) -->
                         <optgroup label="All Countries">
                             <option value="+93">Afghanistan (+93)</option>
                             <option value="+355">Albania (+355)</option>
@@ -530,7 +249,6 @@
                         </optgroup>
                     </select>
                     
-                    <!-- 10-Digit Phone Number Input -->
                     <input type="tel" id="phone" name="phone" required 
                            pattern="^\d{10}$" 
                            title="Please enter exactly 10 digits without any spaces or special characters." 
@@ -555,7 +273,7 @@
             <p id="form-result" style="display: none; margin-top: 20px; font-weight: bold; font-size: 1.1rem;"></p>
         </form>
     </section>
-    <!-- Footer -->
+
     <footer>
         <div class="footer-col">
             <h5>URBAN EGGS</h5>
@@ -569,40 +287,36 @@
             <a href="b2b">B2B Solutions</a>
         </div>
         <div class="footer-col">
-           <h5>Contact Information</h5>
-           <p>
+            <h5>Contact Information</h5>
+            <p>
                 <a href="https://maps.app.goo.gl/Pf2Z3iV4UfkmTTQk8" target="_blank">
                     Survey No. 100/2 Pipardi Jalsika Road,<br>
                     Ghiyavad, Wankaner, Gujarat 363621, India
                 </a>
             </p>
-            <p>Email: <a href="mailto:urbaneggsrajkot@gmail.com"> urbaneggsrajkot@gmail.com </p>
-            <p>Ph: <a href="tel:+919409434343">+91 9409434343 </p>
-            <p>&copy; 2026 Urban Eggs. All rights reserved.</p>
+            <p>Email: <a href="mailto:urbaneggsrajkot@gmail.com">urbaneggsrajkot@gmail.com</a></p>
+            <p>Ph: <a href="tel:+919409434343">+91 9409434343</a></p>
+            <p>© 2026 Urban Eggs. All rights reserved.</p>
         </div>
     </footer>
-	
-	<!-- 1. Link to your Master Javascript File (For the mobile header) -->
+    
     <script src="script.js"></script>
 
-    <!-- 2. The Web3Forms Contact Form Script (Leave this exactly as it is) -->
-	<script>
+    <script>
         const form = document.getElementById('contactForm');
         const result = document.getElementById('form-result');
 
-			form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(form);
             
-            // NEW: Stitch the country code and phone number together for the email
             const combinedPhone = formData.get('countryCode') + ' ' + formData.get('phone');
-            formData.set('phone', combinedPhone); // Update the phone field with the full number
-            formData.delete('countryCode'); // Remove the separate country code field so the email is clean
+            formData.set('phone', combinedPhone); 
+            formData.delete('countryCode'); 
 
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
             
-            // Show a "Sending..." message while they wait
             result.style.display = "block";
             result.style.color = "var(--text-dark)";
             result.innerHTML = "Sending your inquiry...";
@@ -618,19 +332,16 @@
                 .then(async (response) => {
                     let json = await response.json();
                     if (response.status == 200) {
-                        // Success! Show your custom message in green
                         result.style.color = "#28a745"; 
                         result.innerHTML = "Thank you for reaching out! Someone from our team will get back to you shortly.";
                         form.reset(); 
                     } else {
-                        // If something goes wrong on Web3Forms' end
                         console.log(response);
                         result.style.color = "red";
                         result.innerHTML = json.message;
                     }
                 })
                 .catch(error => {
-                    // If the user's internet drops
                     console.log(error);
                     result.style.color = "red";
                     result.innerHTML = "Something went wrong! Please check your internet connection and try again.";
