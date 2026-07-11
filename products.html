@@ -236,16 +236,36 @@
         }
 /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 850px) {
+            /* --- SMOOTH SCROLLING HEADER --- */
+            header {
+                transition: padding 0.3s ease, gap 0.3s ease;
+            }
+            .header-left img {
+                transition: height 0.3s ease;
+            }
+            /* Gives the links and button a smooth fade/slide animation */
+            .header-center, header > .btn-primary {
+                transition: max-height 0.3s ease, opacity 0.2s ease, margin 0.3s ease;
+                max-height: 300px; 
+                opacity: 1;
+                overflow: hidden;
+            }
+
+            /* The Scrolled State */
             header.scrolled {
-                padding: 10px 5vw; /* Shrinks the padding */
+                padding: 10px 5vw;
                 gap: 0;
             }
             header.scrolled .header-center,
             header.scrolled > .btn-primary {
-                display: none; /* Hides the nav links and contact button */
+                max-height: 0;
+                opacity: 0;
+                margin: 0;
+                border: none;
+                pointer-events: none; /* Prevents accidental clicks when invisible */
             }
             header.scrolled .header-left img {
-                height: 60px; /* Slightly shrinks the logo to save even more space */
+                height: 60px;
             }
             
             /* 1. Stack the Navigation */
@@ -408,14 +428,16 @@
         </div>
     </footer>
 
-    <script>
+   <script>
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            // If the user scrolls down more than 50 pixels, add the 'scrolled' class
-            if (window.scrollY > 50) {
+            
+            // Shrink the header only after scrolling down a good bit (80px)
+            if (window.scrollY > 80) {
                 header.classList.add('scrolled');
-            } else {
-                // If they scroll back to the very top, bring the links back
+            } 
+            // Bring the header back ONLY when they scroll almost to the very top (< 20px)
+            else if (window.scrollY < 20) {
                 header.classList.remove('scrolled');
             }
         });
