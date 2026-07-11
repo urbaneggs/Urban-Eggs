@@ -1,321 +1,661 @@
-  /* Global Styles */
-        :root {
-            --primary-yellow: #FFCC00;
-            --text-dark: #1a1a1a;
-            --text-light: #555555;
-            --bg-gray: #f9f9f9;
-        }
-        body {
-            font-family: 'Optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: var(--bg-gray);
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+/* =========================================
+   GLOBAL STYLES (Used on all pages)
+========================================= */
+:root {
+    --primary-yellow: #FFCC00;
+    --text-dark: #1a1a1a;
+    --text-light: #555555;
+    --bg-gray: #f9f9f9;
+}
+body {
+    font-family: 'Optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        /* Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 5vw;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            min-height: 90px;
-        }
-        .header-left {
-            display: flex;
-            flex-direction: row; 
-            align-items: center; 
-            text-align: left;
-            gap: 15px; 
-        }
-        .header-left img {
-            height: 100px; 
-            margin: 0; 
-            padding: 0;
-            display: block; 
-        }
-        .header-left .brand-name {
-            font-size: 16px;
-            font-weight:; 
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--text-dark);
-            margin: 0; 
-            padding: 0;
-            line-height: 1; 
-        }
-        .header-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .nav-links a {
-            margin: 0 15px;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--primary-yellow);
-        }
-        .btn-primary {
-            background-color: var(--primary-yellow);
-            border: 2px solid var(--primary-yellow);
-            padding: 10px 24px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 16px;
-            color: #000;
-            transition: background 0.3s, border-color 0.3s;
-            display: inline-block;
-        }
-        .btn-primary:hover {
-            background-color: #e6b800;
-            border-color: #e6b800;
-        }
+/* --- Navigation Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5vw;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 90px;
+    transition: padding 0.3s ease, gap 0.3s ease; /* For smooth mobile scroll */
+}
+.header-left {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    text-align: left;
+    gap: 15px; 
+}
+.header-left img {
+    height: 100px; 
+    margin: 0; 
+    padding: 0;
+    display: block; 
+    transition: height 0.3s ease; /* For smooth mobile scroll */
+}
+.header-left .brand-name {
+    font-size: 16px;
+    font-weight: bold; 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    margin: 0; 
+    padding: 0;
+    line-height: 1; 
+}
+.header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav-links a {
+    margin: 0 15px;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-yellow);
+}
 
-        /* Page Hero */
-        .page-hero {
-            background-color: #ffffff;
-            padding: 80px 5vw 40px 5vw;
-            text-align: center;
-            border-bottom: 1px solid #eaeaea;
-        }
-        .page-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .page-hero p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
+/* --- Buttons --- */
+.btn-primary {
+    background-color: var(--primary-yellow);
+    border: 2px solid var(--primary-yellow); 
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px; 
+    color: #000;
+    transition: background 0.3s, border-color 0.3s;
+    display: inline-block; 
+}
+.btn-primary:hover {
+    background-color: #e6b800;
+    border-color: #e6b800; 
+}
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--text-dark);
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px; 
+    margin-left: 10px;
+    display: inline-block; 
+    color: var(--text-dark);
+}
 
-        /* Products Catalog Grid */
-        .catalog {
-            padding: 60px 10vw;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        .catalog-card {
-            background-color: #ffffff;
-            border: 1px solid #eaeaea;
-            border-radius: 8px;
-            padding: 30px;
-            width: 360px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .catalog-card h3 {
-            font-size: 1.6rem;
-            margin-top: 0;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-            font-weight: normal;
-        }
-        .catalog-card .img-container {
-            width: 100%;
-            background-color: #e6e6e6;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 220px;
-        }
-        .catalog-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .catalog-card p {
-            font-size: 1.05rem;
-            color: var(--text-dark);
-            margin-bottom: 25px;
-            flex-grow: 1; /* Pushes the link to the bottom */
-            line-height: 1.5;
-        }
-        .catalog-card a {
-            font-weight: normal;
-            color: var(--text-dark);
-            font-size: 1.05rem;
-            border-bottom: 1px solid var(--text-dark);
-            padding-bottom: 2px;
-            margin-top: auto; /* Aligns all links perfectly at the bottom */
-            transition: color 0.3s, border-color 0.3s;
-        }
-        .catalog-card a:hover {
-            color: var(--primary-yellow);
-            border-bottom-color: var(--primary-yellow);
-        }
+/* --- Footer --- */
+footer {
+    background-color: var(--text-dark);
+    color: #ffffff;
+    padding: 30px 5vw 40px 5vw; 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.footer-col h5 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--primary-yellow);
+    margin-top: 0;
+}
+.footer-col p {
+    color: #bbbbbb;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+.footer-col > a {
+    color: #bbbbbb;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: block;
+    transition: color 0.3s; 
+}
+.footer-col > a:hover {
+    color: var(--primary-yellow);
+}
+.footer-col p a {
+    display: inline;
+    color: #bbbbbb;
+}
+.footer-col p a:hover {
+    color: var(--primary-yellow);
+}
 
-        /* Call to Action Banner */
-        .cta-banner {
-            background-color: var(--text-dark);
-            color: #ffffff;
-            text-align: center;
-            padding: 60px 5vw;
-            margin-top: 20px;
-        }
-        .cta-banner h2 {
-            font-size: 2rem;
-            color: var(--primary-yellow);
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .cta-banner p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-            color: #dddddd;
-        }
 
-        /* Footer */
-        footer {
-            background-color: var(--text-dark);
-            color: #ffffff;
-            padding: 30px 5vw 40px 5vw; 
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-        .footer-col h5 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: var(--primary-yellow);
-        }
-        .footer-col p {
-            color: #bbbbbb;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-        }
-        .footer-col > a {
-            color: #bbbbbb;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            display: block;
-            transition: color 0.3s; 
-        }
-        .footer-col > a:hover {
-            color: var(--primary-yellow);
-        }
-        .footer-col p a {
-            display: inline;
-            color: #bbbbbb;
-        }
-        .footer-col p a:hover {
-            color: var(--primary-yellow);
-        }
-/* --- MOBILE RESPONSIVENESS --- */
-        @media (max-width: 850px) {
-            /* --- SMOOTH SCROLLING HEADER --- */
-            header {
-                transition: padding 0.3s ease, gap 0.3s ease;
-            }
-            .header-left img {
-                transition: height 0.3s ease;
-            }
-            /* Gives the links and button a smooth fade/slide animation */
-            .header-center, header > .btn-primary {
-                transition: max-height 0.3s ease, opacity 0.2s ease, margin 0.3s ease;
-                max-height: 300px; 
-                opacity: 1;
-                overflow: hidden;
-            }
+/* =========================================
+   PAGE-SPECIFIC STYLES
+========================================= */
 
-            /* The Scrolled State */
-           header.scrolled {
-                padding: 10px 5vw;
-                gap: 0;
-                min-height: auto; /* This forces it to ignore the desktop height rule! */
-            }
-            header.scrolled .header-center,
-            header.scrolled > .btn-primary {
-                max-height: 0;
-                opacity: 0;
-                margin: 0;
-                border: none;
-                pointer-events: none; /* Prevents accidental clicks when invisible */
-            }
-            header.scrolled .header-left img {
-                height: 60px;
-            }
-            
-            /* 1. Stack the Navigation */
-            header {
-                flex-direction: column;
-                padding: 20px 5vw;
-                gap: 15px;
-            }
-            .header-center {
-                position: static;
-                transform: none;
-            }
-            .nav-links {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            .nav-links a { margin: 0 8px; }
+/* --- Index / Home Page --- */
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), url('Shed 1.png') center/cover;
+    padding: 120px 5vw;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+}
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+.products {
+    padding: 60px 10vw;
+    background-color: #ffffff;
+    text-align: center;
+}
+.products h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    margin-top: 0;
+}
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.product-card {
+    background: var(--bg-gray);
+    border: 1px solid #eaeaea;
+    padding: 40px;
+    border-radius: 8px;
+    width: 350px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.product-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+.product-card a {
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary-yellow);
+    padding-bottom: 2px;
+    margin-top: auto; 
+}
+.difference {
+    padding: 40px 5vw;
+    background-color: var(--bg-gray);
+    text-align: center;
+}
+.difference h2 {
+    margin-top: 0;
+}
+.features-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.feature {
+    max-width: 300px;
+}
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.feature h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
 
-            /* 2. Shrink Giant Hero Text & Spacing */
-            .hero h1, .farm-hero h1, .page-hero h1, .b2b-hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero, .farm-hero, .page-hero, .b2b-hero, .cta-banner {
-                padding: 50px 5vw;
-            }
+/* --- Products Page --- */
+.page-hero {
+    background-color: #ffffff;
+    padding: 80px 5vw 40px 5vw;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+}
+.page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+.page-hero p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+.catalog {
+    padding: 60px 10vw;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    background-color: var(--bg-gray);
+}
+.catalog-card {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 30px;
+    width: 360px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.catalog-card h3 {
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-weight: normal;
+}
+.catalog-card .img-container {
+    width: 100%;
+    background-color: #e6e6e6;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 220px;
+}
+.catalog-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.catalog-card p {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    flex-grow: 1; 
+    line-height: 1.5;
+}
+.catalog-card a {
+    font-weight: normal;
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--text-dark);
+    padding-bottom: 2px;
+    margin-top: auto; 
+    transition: color 0.3s, border-color 0.3s;
+}
+.catalog-card a:hover {
+    color: var(--primary-yellow);
+    border-bottom-color: var(--primary-yellow);
+}
+.cta-banner {
+    background-color: var(--text-dark);
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 5vw;
+}
+.cta-banner h2 {
+    font-size: 2rem;
+    color: var(--primary-yellow);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.cta-banner p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    color: #dddddd;
+}
 
-            /* 3. Make All Cards Flexible (Products, B2B, Features) */
-            .product-card, .catalog-card, .partner-card, .feature {
-                width: 100%;
-                max-width: 400px; /* Keeps them from getting too wide on tablets */
-                box-sizing: border-box; /* Ensures padding doesn't break the width */
-                margin: 0 auto;
-            }
+/* --- Our Farm Page --- */
+.farm-hero {
+    background-color: var(--text-dark);
+    color: #ffffff;
+    padding: 100px 5vw;
+    text-align: center;
+}
+.farm-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary-yellow);
+    margin-top: 0;
+}
+.farm-hero p {
+    font-size: 1.2rem;
+    color: #dddddd;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.content-section {
+    display: flex;
+    align-items: center;
+    padding: 80px 10vw;
+    gap: 60px;
+}
+.content-section.reverse {
+    flex-direction: row-reverse;
+    background-color: var(--bg-gray);
+}
+.text-content {
+    flex: 1;
+}
+.text-content h2 {
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+.text-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+.image-content {
+    flex: 1;
+}
+.placeholder-img {
+    width: 100%;
+    height: 400px;
+    background-color: #e0e0e0;
+    border: 2px dashed #999;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-            /* 4. Stack Side-by-Side Sections (Our Farm Page) */
-            .content-section, .content-section.reverse {
-                flex-direction: column;
-                padding: 50px 5vw;
-                gap: 30px;
-                text-align: center;
-            }
+/* --- B2B Page --- */
+.b2b-hero {
+    background-color: var(--text-dark);
+    color: #ffffff;
+    padding: 100px 5vw;
+    text-align: center;
+    border-bottom: 5px solid var(--primary-yellow);
+}
+.b2b-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary-yellow);
+    margin-top: 0;
+}
+.b2b-hero p {
+    font-size: 1.25rem;
+    color: #dddddd;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.value-prop {
+    padding: 80px 4vw; 
+    text-align: center;
+    background-color: #ffffff;
+}
+.value-prop h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+.value-prop p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px; 
+    margin-top: 50px;
+}
+.partner-card {
+    background-color: var(--bg-gray);
+    border: 1px solid #eaeaea;
+    padding: 35px 25px; 
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box; 
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.partner-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+.partner-card h3 {
+    font-size: 1.3rem; 
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+.partner-card p {
+    font-size: 0.95rem; 
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.5;
+}
+.cta-banner.b2b-cta {
+    background-color: var(--bg-gray);
+    border-top: 1px solid #eaeaea;
+    color: var(--text-dark);
+}
+.cta-banner.b2b-cta h2 {
+    color: var(--text-dark);
+}
+.cta-banner.b2b-cta p {
+    color: var(--text-light);
+}
 
-            /* 5. Center and Stack Hero Buttons (Home Page) */
-            .hero .btn-primary, .hero .btn-secondary {
-                display: block;
-                margin: 10px auto;
-                width: 80%;
-                max-width: 250px;
-            }
-            .hero .btn-secondary {
-                margin-left: auto; /* Fixes the left margin from desktop */
-            }
-            
-            /* 6. Footer adjustments */
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
+/* --- Contact Page --- */
+.contact-page-wrapper {
+    padding: 40px 5vw 80px 5vw; 
+    background-color: #ffffff;
+    text-align: center;
+    min-height: 60vh; 
+}
+.contact-page-wrapper h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    margin-top: 0;
+}
+.contact-page-wrapper p {
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background: var(--bg-gray);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+.form-group input:invalid:focus {
+    border-color: red;
+    outline: none;
+}
+.form-group input:valid:focus, .form-group textarea:focus {
+    border-color: var(--primary-yellow);
+    outline: none;
+}
+.btn-submit {
+    background-color: var(--primary-yellow);
+    color: #000;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+.btn-submit:hover {
+    background-color: #e6b800;
+}
+.phone-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.phone-group select {
+    width: 35%;
+    max-width: 140px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #fff;
+}
+.phone-group input {
+    flex-grow: 1; 
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVENESS (All Pages)
+========================================= */
+@media (max-width: 850px) {
+    
+    /* --- Smooth Scrolling Header --- */
+    .header-center, header > .btn-primary {
+        transition: max-height 0.3s ease, opacity 0.2s ease, margin 0.3s ease;
+        max-height: 300px; 
+        opacity: 1;
+        overflow: hidden;
+    }
+    header.scrolled {
+        padding: 10px 5vw;
+        gap: 0;
+        min-height: auto; 
+    }
+    header.scrolled .header-center,
+    header.scrolled > .btn-primary {
+        max-height: 0;
+        opacity: 0;
+        margin: 0;
+        border: none;
+        pointer-events: none; 
+    }
+    header.scrolled .header-left img {
+        height: 60px;
+    }
+    
+    /* --- Layout Adjustments --- */
+    header {
+        flex-direction: column;
+        padding: 20px 5vw;
+        gap: 15px;
+    }
+    .header-center {
+        position: static;
+        transform: none;
+    }
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .nav-links a { margin: 0 8px; }
+
+    .hero h1, .farm-hero h1, .page-hero h1, .b2b-hero h1, .contact-page-wrapper h1 {
+        font-size: 2.2rem;
+    }
+    .hero, .farm-hero, .page-hero, .b2b-hero, .cta-banner {
+        padding: 50px 5vw;
+    }
+
+    .product-card, .catalog-card, .partner-card, .feature {
+        width: 100%;
+        max-width: 400px; 
+        box-sizing: border-box; 
+        margin: 0 auto;
+    }
+    .partner-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    .content-section, .content-section.reverse {
+        flex-direction: column;
+        padding: 50px 5vw;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .hero .btn-primary, .hero .btn-secondary {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 250px;
+    }
+    .hero .btn-secondary {
+        margin-left: auto; 
+    }
+    
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
