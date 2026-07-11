@@ -236,6 +236,18 @@
         }
 /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 850px) {
+            header.scrolled {
+                padding: 10px 5vw; /* Shrinks the padding */
+                gap: 0;
+            }
+            header.scrolled .header-center,
+            header.scrolled > .btn-primary {
+                display: none; /* Hides the nav links and contact button */
+            }
+            header.scrolled .header-left img {
+                height: 60px; /* Slightly shrinks the logo to save even more space */
+            }
+            
             /* 1. Stack the Navigation */
             header {
                 flex-direction: column;
