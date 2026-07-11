@@ -7,7 +7,301 @@
 	<!-- This line adds your logo to the browser tab -->
     <link rel="icon" type="image/png" href="logo_borderless.png">
 
-	<link rel="stylesheet" href="style.css">
+	 <style>
+        /* Global Styles */
+        :root {
+            --primary-yellow: #FFCC00;
+            --text-dark: #1a1a1a;
+            --text-light: #555555;
+            --bg-gray: #f9f9f9;
+        }
+        body {
+            font-family: 'Optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 5vw;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            min-height: 90px;
+        }
+.header-left {
+            display: flex;
+            flex-direction: row; 
+            align-items: center; /* This perfectly centers them vertically */
+            text-align: left;
+            gap: 15px; 
+        }
+        .header-left img {
+            height: 100px; 
+            /* ADD THESE 3 LINES: */
+            margin: 0; 
+            padding: 0;
+            display: block; /* Removes default browser spacing under images */
+        }
+        .header-left .brand-name {
+            font-size: 16px;
+            font-weight: ; /* Added bold back in case you missed it */
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            /* ADD THESE 3 LINES: */
+            margin: 0; 
+            padding: 0;
+            line-height: 1; /* Strips away invisible text line-height spacing */
+        }
+        .header-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nav-links a {
+            margin: 0 15px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-yellow);
+        }
+        .btn-primary {
+            background-color: var(--primary-yellow);
+            border: 2px solid var(--primary-yellow); /* ADDED: Matches the secondary border thickness */
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px; /* ADDED: Locks the exact text size */
+            color: #000;
+            transition: background 0.3s, border-color 0.3s;
+            display: inline-block; /* ADDED: Forces the link to behave like a block button */
+        }
+        .btn-primary:hover {
+            background-color: #e6b800;
+            border-color: #e6b800; /* ADDED: Keeps the border matching on hover */
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--text-dark);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px; /* ADDED: Matches the primary text size */
+            margin-left: 10px;
+            display: inline-block; /* ADDED: Forces the link to behave like a block button */
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Replace the URL below with your panoramic shed image */
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), url('Shed 1.png') center/cover;
+            padding: 120px 5vw;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Core Products Section */
+        .products {
+            padding: 60px 10vw;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        .products h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .product-card {
+            background: var(--bg-gray);
+            border: 1px solid #eaeaea;
+            padding: 40px;
+            border-radius: 8px;
+            width: 350px;
+            text-align: left;
+
+            /* ADD THESE 3 LINES: */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .product-card a {
+            font-weight: bold;
+            border-bottom: 2px solid var(--primary-yellow);
+            padding-bottom: 2px;
+
+            /* ADD THIS LINE: */
+            margin-top: auto; /* This magically pushes the link to the exact bottom edge */
+        }
+
+        /* The Difference Section */
+        .difference {
+            padding: 20px 5vw;
+            background-color: var(--bg-gray);
+            text-align: center;
+        }
+        .features-grid {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .feature {
+            max-width: 300px;
+        }
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .feature h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+		footer {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            padding: 1px 5vw 40px 5vw; /* Reduced top padding to 30px */
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .footer-col h5 {
+            font-size: 1.2rem;
+            margin-bottom: 1px;
+            color: var(--primary-yellow);
+        }
+        .footer-col p {
+            color: #bbbbbb;
+            font-size: 0.9rem;
+            margin-bottom: 1px;
+        }
+        .footer-col > a {
+            color: #bbbbbb;
+            font-size: 0.9rem;
+            margin-bottom: 1px;
+            display: block;
+        }
+		.footer-col > a {
+            color: #bbbbbb;
+            font-size: 0.9rem;
+            margin-bottom: 1px;
+            display: block;
+            transition: color 0.3s; /* Adds a smooth fade effect */
+        }
+        /* This makes the Quick Links turn yellow on hover */
+        .footer-col > a:hover {
+            color: var(--primary-yellow);
+        }
+        /* This new rule forces links inside paragraphs (like your email/phone) to stay on the same line */
+        .footer-col p a {
+            display: inline;
+            color: #bbbbbb;
+        }
+        .footer-col p a:hover {
+            color: var(--primary-yellow);
+        }
+/* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 850px) {
+            /* 1. Stack the Navigation */
+            header {
+                flex-direction: column;
+                padding: 20px 5vw;
+                gap: 15px;
+            }
+            .header-center {
+                position: static;
+                transform: none;
+            }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-links a { margin: 0 8px; }
+
+            /* 2. Shrink Giant Hero Text & Spacing */
+            .hero h1, .farm-hero h1, .page-hero h1, .b2b-hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero, .farm-hero, .page-hero, .b2b-hero, .cta-banner {
+                padding: 50px 5vw;
+            }
+
+            /* 3. Make All Cards Flexible (Products, B2B, Features) */
+            .product-card, .catalog-card, .partner-card, .feature {
+                width: 100%;
+                max-width: 400px; /* Keeps them from getting too wide on tablets */
+                box-sizing: border-box; /* Ensures padding doesn't break the width */
+                margin: 0 auto;
+            }
+
+            /* 4. Stack Side-by-Side Sections (Our Farm Page) */
+            .content-section, .content-section.reverse {
+                flex-direction: column;
+                padding: 50px 5vw;
+                gap: 30px;
+                text-align: center;
+            }
+
+            /* 5. Center and Stack Hero Buttons (Home Page) */
+            .hero .btn-primary, .hero .btn-secondary {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+                max-width: 250px;
+            }
+            .hero .btn-secondary {
+                margin-left: auto; /* Fixes the left margin from desktop */
+            }
+
+            /* 6. Footer adjustments */
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+	</style>
 	
 </head>
 <body>
