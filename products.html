@@ -7,7 +7,329 @@
     <!-- This line adds your logo to the browser tab -->
     <link rel="icon" type="image/png" href="logo_borderless.png">
 
-    <link rel="stylesheet" href="style.css">
+  <style>
+        /* Global Styles */
+        :root {
+            --primary-yellow: #FFCC00;
+            --text-dark: #1a1a1a;
+            --text-light: #555555;
+            --bg-gray: #f9f9f9;
+        }
+        body {
+            font-family: 'Optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-gray);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 5vw;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            min-height: 90px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: row; 
+            align-items: center; 
+            text-align: left;
+            gap: 15px; 
+        }
+        .header-left img {
+            height: 100px; 
+            margin: 0; 
+            padding: 0;
+            display: block; 
+        }
+        .header-left .brand-name {
+            font-size: 16px;
+            font-weight:; 
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            margin: 0; 
+            padding: 0;
+            line-height: 1; 
+        }
+        .header-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nav-links a {
+            margin: 0 15px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-yellow);
+        }
+        .btn-primary {
+            background-color: var(--primary-yellow);
+            border: 2px solid var(--primary-yellow);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #000;
+            transition: background 0.3s, border-color 0.3s;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background-color: #e6b800;
+            border-color: #e6b800;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background-color: #ffffff;
+            padding: 80px 5vw 40px 5vw;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .page-hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Products Catalog Grid */
+        .catalog {
+            padding: 60px 10vw;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .catalog-card {
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 30px;
+            width: 360px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .catalog-card h3 {
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            font-weight: normal;
+        }
+        .catalog-card .img-container {
+            width: 100%;
+            background-color: #e6e6e6;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 220px;
+        }
+        .catalog-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .catalog-card p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            flex-grow: 1; /* Pushes the link to the bottom */
+            line-height: 1.5;
+        }
+        .catalog-card a {
+            font-weight: normal;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            border-bottom: 1px solid var(--text-dark);
+            padding-bottom: 2px;
+            margin-top: auto; /* Aligns all links perfectly at the bottom */
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .catalog-card a:hover {
+            color: var(--primary-yellow);
+            border-bottom-color: var(--primary-yellow);
+        }
+
+        /* Call to Action Banner */
+        .cta-banner {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 5vw;
+            margin-top: 20px;
+        }
+        .cta-banner h2 {
+            font-size: 2rem;
+            color: var(--primary-yellow);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .cta-banner p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            color: #dddddd;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            padding: 30px 5vw 40px 5vw; 
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .footer-col h5 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-yellow);
+        }
+        .footer-col p {
+            color: #bbbbbb;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .footer-col > a {
+            color: #bbbbbb;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: block;
+            transition: color 0.3s; 
+        }
+        .footer-col > a:hover {
+            color: var(--primary-yellow);
+        }
+        .footer-col p a {
+            display: inline;
+            color: #bbbbbb;
+        }
+        .footer-col p a:hover {
+            color: var(--primary-yellow);
+        }
+/* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 850px) {
+            /* --- SMOOTH SCROLLING HEADER --- */
+            header {
+                transition: padding 0.3s ease, gap 0.3s ease;
+            }
+            .header-left img {
+                transition: height 0.3s ease;
+            }
+            /* Gives the links and button a smooth fade/slide animation */
+            .header-center, header > .btn-primary {
+                transition: max-height 0.3s ease, opacity 0.2s ease, margin 0.3s ease;
+                max-height: 300px; 
+                opacity: 1;
+                overflow: hidden;
+            }
+
+            /* The Scrolled State */
+           header.scrolled {
+                padding: 10px 5vw;
+                gap: 0;
+                min-height: auto; /* This forces it to ignore the desktop height rule! */
+            }
+            header.scrolled .header-center,
+            header.scrolled > .btn-primary {
+                max-height: 0;
+                opacity: 0;
+                margin: 0;
+                border: none;
+                pointer-events: none; /* Prevents accidental clicks when invisible */
+            }
+            header.scrolled .header-left img {
+                height: 60px;
+            }
+            
+            /* 1. Stack the Navigation */
+            header {
+                flex-direction: column;
+                padding: 20px 5vw;
+                gap: 15px;
+            }
+            .header-center {
+                position: static;
+                transform: none;
+            }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-links a { margin: 0 8px; }
+
+            /* 2. Shrink Giant Hero Text & Spacing */
+            .hero h1, .farm-hero h1, .page-hero h1, .b2b-hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero, .farm-hero, .page-hero, .b2b-hero, .cta-banner {
+                padding: 50px 5vw;
+            }
+
+            /* 3. Make All Cards Flexible (Products, B2B, Features) */
+            .product-card, .catalog-card, .partner-card, .feature {
+                width: 100%;
+                max-width: 400px; /* Keeps them from getting too wide on tablets */
+                box-sizing: border-box; /* Ensures padding doesn't break the width */
+                margin: 0 auto;
+            }
+
+            /* 4. Stack Side-by-Side Sections (Our Farm Page) */
+            .content-section, .content-section.reverse {
+                flex-direction: column;
+                padding: 50px 5vw;
+                gap: 30px;
+                text-align: center;
+            }
+
+            /* 5. Center and Stack Hero Buttons (Home Page) */
+            .hero .btn-primary, .hero .btn-secondary {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+                max-width: 250px;
+            }
+            .hero .btn-secondary {
+                margin-left: auto; /* Fixes the left margin from desktop */
+            }
+            
+            /* 6. Footer adjustments */
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+  </style>
     
 </head>
 <body>
